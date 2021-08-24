@@ -1,0 +1,21 @@
+{
+  "name": "stajyer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "author": "Furkan SARI",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "mongoose": "^5.13.8",
+    "slugify": "^1.6.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  }
+}
