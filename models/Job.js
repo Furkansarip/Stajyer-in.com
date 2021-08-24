@@ -6,7 +6,6 @@ const Schema = mongoose.Schema;
 const JobSchema = new Schema({
     companyName:{
         type:String,
-        
     },
     jobTitle:{
         type:String,
@@ -23,6 +22,10 @@ const JobSchema = new Schema({
         type: Date,
         default: Date.now,
       },
+    category:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'Category'
+    },
     slug:{
         type:String,
         unique:true

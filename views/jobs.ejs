@@ -7,37 +7,64 @@
 		</div>
 	</div>
 	
+   
     <div id="overviews" class="section wb">
+        <div class="container">
             <div class="row"> 
-                <div class="container">
-					<div class="row">
-						<% for (let i=0;i<jobs.length;i++){%>
-						<div class="col-sm-8 col-md-4 col-12 mt-2">
-							<div class="card" style="width: 17rem;">
-								<img src="/images/blog_1.jpg" class="card-img-top" alt="...">
-								<div class="card-body">
-								  <h5 class="card-title" style="text-align: center;"><%=jobs[i].jobTitle%></h5>
-								  <i class="fa fa-map-marker" aria-hidden="true"></i>
-								  <span>
-									<%=jobs[i].location%>
-								  </span>
-								  <p class="card-text"><%=jobs[i].description%></p>
-								</div>
-								
-								<a href="/jobs/<%=jobs[i].slug%>" class="btn btn-primary">Inspect</a>
-								
-							  </div>
+                
+                <div class="col-lg-9 blog-post-single">
+				            <div class="row"> 
+                                <% for (let i=0;i<jobs.length;i++){%>
+                <div class="col-sm-4 col-md-4 col-12">
+                    <div class="course-item mb-5">
+						<div class="image-blog">
+							<img src="images/blog_1.jpg" alt="" class="img-fluid">
 						</div>
-						<%}%>
+						<div class="course-br">
+							<div class="course-title">
+								<h2 style="text-align: center;"><a href="/jobs/<%=jobs[i].slug%>" title=""><%=jobs[i].jobTitle%></a></h2>
+							</div>
+							<div class="course-desc">
+								<p><%=jobs[i].description%></p>
+							</div>
+						</div>
+						<div class="course-meta-bot">
+							<ul>
+								<li><i class="fa fa-user" aria-hidden="true"></i> Başvuran Sayısı:</li>
+							</ul>
+						</div>
+					</div>
+                </div><!-- end col -->
+                <%}%>	
+            </div><!-- end row -->
+            
+        </div><!-- end col -->
+        
+        
+        <div class="col-lg-3 col-12 right-single">
+            <div class="widget-search">
+                <div class="site-search-area">
+                    <form method="get" id="site-searchform" action="#">
+                        <div>
+                            <input class="input-text form-control" name="search-k" id="search-k" placeholder="Search keywords..." type="text">
+                            <input id="searchsubmit" value="Search" type="submit">
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="widget-categories">
+                <h3 class="widget-title">Categories</h3>
+                <% for (let i=0;i<categories.length;i++){%>
+                <ul>
+                    <li><a href="/jobs?categories=<%=categories[i].slug%>"><%=categories[i].name%></a></li>
                     
-						
-				</div>
-				</div>
-            </div><!-- end row -->	
-        </div><!-- end container -->
-    </div><!-- end section -->
-
-    
+                </ul>
+                <%}%>
+            </div>
+        </div>
+    </div><!-- end row -->
+</div><!-- end container -->
+</div><!-- end section -->
 
     <div class="parallax section dbcolor">
         <div class="container">
