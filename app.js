@@ -1,5 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const session=require('express-session')
+const MongoStore = require('connect-mongo');
 const pageRoute = require('./routes/pageRoute');
 const jobRoute = require('./routes/jobRoute');
 const categoryRoute=require('./routes/categoryRoute')
@@ -22,10 +24,27 @@ mongoose
     console.log('DB connected');
   });
 
+  //Global
+global.userIN=null
+
 //Middlewares
+
 app.use(express.static('public'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.set('trust proxy', 1) // trust first proxy
+app.use(session({
+  secret: 'my_keyboard_cat',
+  resave: false,
+  saveUninitialized: true,
+  store: MongoStore.create({ mongoUrl: 'mongodb://localhost/CI-project' })//Kod değişikliğinde kullanıcının çıkışını engeller.
+  //DBye session açar orda saklar
+ 
+}))
+app.use('*',(req,res,next)=>{
+  userIN=req.session.userID;//userin değişkenine id atarsak kontrolde true dönecektir.
+  next();
+})
 
 //Routes
 app.use('/', pageRoute);
