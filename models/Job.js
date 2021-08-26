@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const slugify = require('slugify');
 const bcrypt = require('bcrypt')//Password hash için gerekli paket
+const User=require('../models/User')
 const Schema = mongoose.Schema;
 
 const JobSchema = new Schema({
@@ -29,7 +30,15 @@ const JobSchema = new Schema({
     slug:{
         type:String,
         unique:true
-    }
+    },
+    user:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'User'
+    },
+    students:[{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'User'
+    }]
 
   });
   JobSchema.pre('validate',function(next){

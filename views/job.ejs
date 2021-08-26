@@ -13,13 +13,17 @@
                 <div class="col-lg-9 blog-post-single">
                     <div class="blog-item">
 						<div class="image-blog">
-							<img src="images/blog_single.jpg" alt="" class="img-fluid">
+							<img src="/images/blog_single.jpg" alt="" class="img-fluid">
 						</div>
 						<div class="post-content">
+							<% if(user && !(user.jobs.includes(job._id))){%>
 							<div class="post-date">
-								<span class="day">30</span>
-								<span class="month">Nov</span>
+								<form method="POST" action="/jobs/enroll">
+									<input type="hidden" name="job_id" value="<%=job._id%>">
+									<button class="btn btn-lg btn-warning text-white">Enroll</button>
+								</form>
 							</div>
+							<%}%>
 							<div class="meta-info-blog">
 								<span><i class="fa fa-calendar"></i> <a href="#">May 11, 2015</a> </span>
 							</div>
@@ -38,7 +42,7 @@
 					
 					<div class="blog-author">
 						<div class="author-bio">
-							<h3 class="author_name"><a href="#">Tom Jobs</a></h3>
+							<h3 class="author_name"><a href="#"><%=job.user.username%></a></h3>
 							<h5>CEO at <a href="#">SmartEDU</a></h5>
 							<p class="author_det">
 								Lorem ipsum dolor sit amet, consectetur adip, sed do eiusmod tempor incididunt  ut aut reiciendise voluptat maiores alias consequaturs aut perferendis doloribus omnis saperet docendi nec, eos ea alii molestiae aliquand.
