@@ -23,9 +23,10 @@ exports.createJob = async (req, res) => {
 };
 
 exports.getAllJobs = async (req, res) => {
-  
+  const user=await User.findOne({_id:req.session.userID})
   const categorySlug = req.query.categories
   const category=await Category.findOne({slug:categorySlug})
+  const activeUser=await User.findOne({_id:req.session.userID})
 
   let filter={}
 
@@ -40,6 +41,8 @@ exports.getAllJobs = async (req, res) => {
       page_name: 'jobs',
       jobs,
       categories,
+      user,
+      activeUser
     });
   } catch (error) {
     res.status(400).json({
@@ -52,11 +55,13 @@ exports.getAllJobs = async (req, res) => {
 exports.getJob = async (req, res) => {
   const job = await Job.findOne({ slug: req.params.slug }).populate('user');
   const user=await User.findById(req.session.userID)
+  const activeUser=await User.findOne({_id:req.session.userID})
   try {
     res.status(200).render('job', {
       page_name: 'jobs',
       job,
-      user
+      user,
+      activeUser
     });
   } catch (error) {
     res.status(400).json({

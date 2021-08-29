@@ -9,32 +9,105 @@
 	
     <div id="overviews" class="section wb">
         <div class="container">
-            
-			<div class="row mt-5"> 
-				<% for (let i=0;i<user.jobs.length;i++){%>
-                <div class="col-lg-6 col-md-6 col-12">
-                    <div class="course-item mb-5">
+				<div class="row">
+			<form method="POST" action="/users/dashboard" enctype="multipart/form-data">
+				<div class="form-row">
+				  <div class="form-group col-md-6">
+					<label for="inputEmail4">First Name</label>
+					<input type="firstName" name="firstName" class="form-control" value="<%=user.firstName%>" placeholder="First Name">
+				  </div>
+				  <div class="form-group col-md-6">
+					<label for="inputPassword4">Last Name</label>
+					<input type="lastName" name="lastName" class="form-control" value="<%=user.LastName%>" placeholder="Last Name">
+				  </div>
+				</div>
+				
+				<div class="form-group">
+				  <label for="inputAddress2">Phone Number</label>
+				  <input type="text" name="phoneNumber" class="form-control" value="<%=user.phoneNumber%>" placeholder="Phone Number">
+				</div>
+				<div class="form-group">
+					<label for="inputAddress2">Adress</label>
+					<input type="text" name="adress" class="form-control" value="<%=user.adress%>"  placeholder="Adress">
+				  </div>
+				  <div class="form-group">
+					<label for="inputAddress2">Education</label>
+					<input type="text" name="education" class="form-control" value="<%=user.education%>" placeholder="Education">
+				  </div>
+				  <div class="form-group">
+					<label for="inputAddress2">Cover Letter</label>
+					<textarea type="textarea" name="coverLetter" class="form-control" value="" ><%=user.coverLetter%></textarea>
+				  </div>
+				<div class="form-group">
+					
+					<input type="hidden" name="user" class="form-control" value="<%=user._id%>">
+				  </div>
+				<div class="form-row">
+				  <div class="form-group col-md-12">
+					<label >Profile Picture</label>
+					<input name="image" type="file" value="" class="form-control">
+				  </div>
+				  
+				</div>
+				
+				<a href=""><button style="display: block; margin: 0 auto;" type="submit" class="btn btn-primary">Bilgileri Kaydet</button></a>
+			  </form>
+			 
+                <div class="offset-1 col-lg-6 col-md-6 col-12">
+                    
 						<div class="image-blog">
-							<img src="/images/blog_1.jpg" alt="" class="img-fluid">
+							<h3 style="text-align: center;">Başvurular</h3>
 						</div>
-						<div class="course-br">
+						<div class="">
+							
+							<table class="table">
+								<thead>
+								  <tr>
+									<th scope="col">Company</th>
+									<th scope="col">Job Title</th>
+									<th scope="col">Status</th>
+								  </tr>
+								</thead>
+								<% for (let i=0;i<user.jobs.length;i++){%>
+								<tr>
+								
+                   				<td><a href="/jobs/<%=user.jobs[i].slug%>"><%=user.jobs[i].companyName%></a></td>
+								<td><a href="/jobs/<%=user.jobs[i].slug%>"><%=user.jobs[i].jobTitle%></a></td>
+								<td><form method="POST" action="/jobs/release">
+									<input type="hidden" name="job_id" value="<%=user.jobs[i]._id%>">
+									<button class="btn btn-sm btn-danger text-white">Release</button>
+								</form></td>
+								<%}%>	
+								</tr>
+								</table>
 							<div class="course-title">
-								<h2><a href="course-single.html" title=""><%=user.jobs[i].companyName%></a></h2>
+								<h2><a href="course-single.html" title=""></a></h2>
 							</div>
 							<div class="course-desc">
-								<p>Lorem ipsum door sit amet, fugiat deicata avise id cum, no quo maiorum intel ogrets geuiat operts elicata libere avisse id cumlegebat, liber regione eu sit.... </p>
+								<p></p>
 							</div>
-							<form method="POST" action="/jobs/release">
-								<input type="hidden" name="job_id" value="<%=user.jobs[i]._id%>">
-								<button class="btn btn-lg btn-danger text-white">Release</button>
-							</form>
+							
 						</div>
-					</div>
+					
                 </div><!-- end col -->
-				<%}%>	
+			</div>
+			
+
+				
+			<div class="row"> 
+				
+				
+				
+		
+		</div>
             </div><!-- end row -->
         </div><!-- end container -->
+		</div>
     </div><!-- end section -->
+
+	
+	
+
 	<%}%>
 	<!--ADMIN-->
 	<%if(user.role==="Company"){%>
@@ -83,11 +156,17 @@
 	
 				</div><!-- end row -->
 			</div><!-- end container -->
+			
 		</div><!-- end section -->
+		
 
-		<!-- ADD Modal -->
-		<%- include('partials/_footer.ejs')%>
+		
+	
+		
 		<%}%>
+		
+		<%- include('partials/_footer.ejs')%>
+		<!-- ADD Modal -->
 		<div class="modal fade" id="addCourse" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 			<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
 				<div class="modal-content">
@@ -102,7 +181,7 @@
 										</div>
 									<div class="form-group">
 										<div class="col-sm-12">
-											<input type="text" name="companyName" class="form-control" value="XXX">
+											<input type="text" name="companyName" class="form-control" placeholder="Company Name">
 										</div>
 									<div class="form-group">
 										<div class="col-sm-12">
@@ -148,5 +227,7 @@
 			</div>
 			</div>
 
-   
-   
+
+
+
+			

@@ -36,9 +36,9 @@
                     
                     <td><%=sjobs.students[i].username%></td>
                     <td><%=sjobs.students[i].email%></td>
-                    <td><form method="GET" action="/users/<%=sjobs.students[i]._id%>">
-                        <button class="btn btn-danger">Inspect</button></form></td>
-                    
+                    <td>
+                      <a href="/users/<%=sjobs.students[i].slug%>"><button class="btn btn-danger">Inspect</button></a>  
+                    </td>
                   </tr>
                   <%}%>
                   
