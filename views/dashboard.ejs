@@ -10,50 +10,9 @@
     <div id="overviews" class="section wb">
         <div class="container">
 				<div class="row">
-			<form method="POST" action="/users/dashboard" enctype="multipart/form-data">
-				<div class="form-row">
-				  <div class="form-group col-md-6">
-					<label for="inputEmail4">First Name</label>
-					<input type="firstName" name="firstName" class="form-control" value="<%=user.firstName%>" placeholder="First Name">
-				  </div>
-				  <div class="form-group col-md-6">
-					<label for="inputPassword4">Last Name</label>
-					<input type="lastName" name="lastName" class="form-control" value="<%=user.LastName%>" placeholder="Last Name">
-				  </div>
-				</div>
-				
-				<div class="form-group">
-				  <label for="inputAddress2">Phone Number</label>
-				  <input type="text" name="phoneNumber" class="form-control" value="<%=user.phoneNumber%>" placeholder="Phone Number">
-				</div>
-				<div class="form-group">
-					<label for="inputAddress2">Adress</label>
-					<input type="text" name="adress" class="form-control" value="<%=user.adress%>"  placeholder="Adress">
-				  </div>
-				  <div class="form-group">
-					<label for="inputAddress2">Education</label>
-					<input type="text" name="education" class="form-control" value="<%=user.education%>" placeholder="Education">
-				  </div>
-				  <div class="form-group">
-					<label for="inputAddress2">Cover Letter</label>
-					<textarea type="textarea" name="coverLetter" class="form-control" value="" ><%=user.coverLetter%></textarea>
-				  </div>
-				<div class="form-group">
-					
-					<input type="hidden" name="user" class="form-control" value="<%=user._id%>">
-				  </div>
-				<div class="form-row">
-				  <div class="form-group col-md-12">
-					<label >Profile Picture</label>
-					<input name="image" type="file" value="" class="form-control">
-				  </div>
-				  
-				</div>
-				
-				<a href=""><button style="display: block; margin: 0 auto;" type="submit" class="btn btn-primary">Bilgileri Kaydet</button></a>
-			  </form>
+			
 			 
-                <div class="offset-1 col-lg-6 col-md-6 col-12">
+                <div class="col-lg-12 col-md-6 col-12">
                     
 						<div class="image-blog">
 							<h3 style="text-align: center;">Başvurular</h3>

@@ -12,6 +12,7 @@ router.route('/logout').get(authController.logoutUser)//localhost:3000/
 router.route('/dashboard').get(authMiddleware,authController.getDashboardPage)
 router.route('/:slug').get(authController.getProfile)
 router.route('/dashboard').post(authController.updateProfile)
+router.route('/:slug').post(authController.updateProfile)
 //localhost:3000///localhost:3000/users/dashboard öncesinde middleware bak sonra controllera geç
 
 

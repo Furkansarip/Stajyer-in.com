@@ -66,6 +66,7 @@ exports.getListPage=async(req,res)=>{
   const categories=await Category.find()
   const jobs=await Job.find({user:req.session.userID})
   const sjobs=await Job.findOne({_id:req.body.jobList}).populate('students')
+  const activeUser=await User.findOne({_id:req.session.userID})/
   console.log(sjobs._id)
   
   res.status(200).render('list',{
@@ -73,7 +74,8 @@ exports.getListPage=async(req,res)=>{
       user,
       categories,
       jobs,
-      sjobs
+      sjobs,
+      activeUser
   })
 }
 
@@ -83,8 +85,8 @@ exports.getProfile=async(req,res)=>{
   slugdaki user bilgileriyle sesssion user çakışmasını engellemek için aktif kullanıcıyı buldum.
   ve navbarda ve profile sayfasında çağırdım. 
   */
-  console.log(user.role)
-  console.log(activeUser.role)
+  console.log(user.email)
+  console.log(activeUser.email)
 
  // const profile=await Profile.findOne({user:})
  console.log(req.session.userID)
@@ -109,7 +111,7 @@ exports.updateProfile = async (req, res) => {
     user.education = req.body.education;
     user.coverLetter = req.body.coverLetter;
     user.save();  
-    res.status(200).redirect('/');
+    res.status(200).redirect('/users/dashboard');
      
     }
     let uploadeImage = req.files.image;
