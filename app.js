@@ -9,6 +9,8 @@ const jobRoute = require('./routes/jobRoute');
 const categoryRoute = require('./routes/categoryRoute');
 const userRoute = require('./routes/userRoute');
 const profileRoute = require('./routes/profileRoute');
+const jsdom = require("jsdom");
+const { JSDOM } = jsdom;
 
 const app = express();
 
