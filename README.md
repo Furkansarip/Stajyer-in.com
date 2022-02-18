@@ -1,1 +1,1 @@
-"# CI-Project" 
+Firmalar ve Stajyerleri buluşturan platform
