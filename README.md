@@ -1,4 +1,5 @@
-# Firmalar ve Stajyerleri buluşturan platform
+# Stajyer-in.com
+* Firmalar ve Stajyerleri buluşturan platform
 
 ### Avantajları
 * Bu projenin stajyerler için avantajı sosyal medya platformu gibi bir profil oluşturup firmalara başvuru yapmanızı sağlıyor.
