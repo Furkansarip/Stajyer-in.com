@@ -1,11 +1,11 @@
 #Firmalar ve Stajyerleri buluşturan platform
 
-Stajyerler için kullanımı
+##Stajyerler için kullanımı
 1-Sisteme Kayıt ol ve Kişisel Bilgilerini doldur.
 2-Güncel CVni sisteme yükle ve profilini tamamla.
 3-Jobs Sayfasından aktif ilanlara oluşturduğun profil ile hızlıca başvur.
 
-Firmalar için Kullanımı
+##Firmalar için Kullanımı
 1-Kayıt olun ve Firma bilgilerini doldurun.
 2-Firma Profilinizi oluşturun
 3-Firmanıza yapılan başvuruları dashboard sayfanızdan takip edebilirsiniz.
